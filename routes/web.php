@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/create', function () {
+    return view('create');
+});
+Route::get('/history', function () {
+    return view('history');
+});
 
 Route::get('/profile', function () {
     return view('profile');
