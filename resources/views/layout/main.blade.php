@@ -71,10 +71,10 @@
           <a class="nav-link page-scroll" href="#intro">INTRO</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link page-scroll" href="#package">PACKAGES</a>
+          <a class="nav-link page-scroll" href="#package">TRAVEL LIST</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link page-scroll" href="#gallery">GALLERY</a>
+          <a class="nav-link page-scroll" href="#article">ARTICLE</a>
         </li>
         <li class="nav-item">
           <a class="nav-link page-scroll" href="#team">OUR TEAM</a>
