@@ -45,8 +45,8 @@ class TripsController extends Controller
             'image' => 'required',
             'image' => 'mimes:jpeg,jpg,png',
             'nama' => 'required',
-            'StartDate' => 'required',
-            'EndDate' => 'required',
+            'startDate' => 'required',
+            'endDate' => 'required',
             'minimal' => 'required',
             'maksimal' => 'required',
             'description' => 'required',
@@ -60,8 +60,8 @@ class TripsController extends Controller
         // Product::create($request->all());
         Trip::create([
             'nama' => $request->nama,
-            'StartDate' => $request->StartDate,
-            'EndDate' => $request->EndDate,
+            'StartDate' => $request->startDate,
+            'EndDate' => $request->endDate,
             'minimal' => $request->minimal,
             'maksimal' => $request->maksimal,
             'description' => $request->description,

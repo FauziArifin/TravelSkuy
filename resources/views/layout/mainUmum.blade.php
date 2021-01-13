@@ -69,7 +69,7 @@
           <a class="nav-link page-scroll" href="/">HOME<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link page-scroll" href="#intro">List Package</a>
+          <a class="nav-link page-scroll" href=''>TRAVEL LIST</a>
         </li>
         @guest
         @if (Route::has('login'))

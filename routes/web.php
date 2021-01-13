@@ -22,14 +22,6 @@ use App\Http\Controllers\ProfileController;
 // Route::get('/create', function () {
 //     return view('create');
 // });
-Route::get('/contact', function () {
-    return view('contactWA');
-});
-
-Route::get('/profile', function () {
-    return view('profile');
-});
-
 
 Auth::routes();
 
@@ -40,7 +32,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/',[TripsController::class, 'index']);
 
 //Trip Plan
-
 Route::post('/',[TripsController::class, 'store']);
 
 //guider

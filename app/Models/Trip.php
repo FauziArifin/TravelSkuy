@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Trip extends Model
 {
-    use HasFactory;
+    protected $fillable = ['nama', 'StartDate', 'EndDate', 'minimal', 'maksimal', 'description', 'TourGuideName', 'img_path', 'price'];
 }

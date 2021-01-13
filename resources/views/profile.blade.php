@@ -1,7 +1,7 @@
 @extends('layout/main')
 
 
-@section('title', 'Home')
+@section('title', 'Profile')
 
 @section('style_navbar')
 <link href="{{asset('style/css/styles_others.css')}}" rel="stylesheet">
