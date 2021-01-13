@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,7 +12,7 @@
   <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
   <meta property="og:site_name" content="" /> <!-- website name -->
   <meta property="og:site" content="" /> <!-- website link -->
-  <meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
+  <meta property="og:title" content="" /> <!-- title shown in the actual shared post -->
   <meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
   <meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
   <meta property="og:url" content="" /> <!-- where do you want your post to link to -->
@@ -23,7 +24,7 @@
   <!-- Styles -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap&subset=latin-ext" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600&display=swap&subset=latin-ext" rel="stylesheet">
-  <link href="{{asset('style/css/bootstrap.css')}}"rel="stylesheet">
+  <link href="{{asset('style/css/bootstrap.css')}}" rel="stylesheet">
   <link href="{{asset('style/css/fontawesome-all.css')}}" rel="stylesheet">
   <link href="{{asset('style/css/swiper.css')}}" rel="stylesheet">
   <link href="{{asset('style/css/magnific-popup.css')}}" rel="stylesheet">
@@ -79,24 +80,63 @@
         <li class="nav-item">
           <a class="nav-link page-scroll" href="#team">OUR TEAM</a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link page-scroll" href="#contact">CONTACT</a>
         </li>
+        @guest
+        @if (Route::has('login'))
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+        </li>
+        @endif
 
-        <!-- Dropdown Menu -->
+        @if (Route::has('register'))
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+        </li>
+        @endif
+        @else
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle page-scroll" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">LOGIN/REGISTER</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item popup-with-move-anim" href="#login"><span class="item-text">LOGIN</span></a>
-            <div class="dropdown-items-divide-hr"></div>
-            <a class="dropdown-item" href="privacy-policy.html"><span class="item-text">REGISTER</span></a>
+          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            {{ Auth::user()->name }}
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/profile">
+              {{ __('Profile') }}
+            </a>
+            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+              {{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+            </form>
           </div>
         </li>
-        <!-- end of dropdown menu -->
+
+        @endguest
       </ul>
+      <span class="nav-item social-icons">
+        <span class="fa-stack">
+          <a href="#your-link">
+            <span class="hexagon"></span>
+            <i class="fab fa-facebook-f fa-stack-1x"></i>
+          </a>
+        </span>
+        <span class="fa-stack">
+          <a href="#your-link">
+            <span class="hexagon"></span>
+            <i class="fab fa-twitter fa-stack-1x"></i>
+          </a>
+        </span>
+      </span>
     </div>
+
   </nav> <!-- end of navbar -->
   <!-- end of navbar -->
+
 
   @yield('container')
 
@@ -113,4 +153,5 @@
   <script src="{{asset('style/js/validator.min.js')}}"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
   <script src="{{asset('style/js/scripts.js')}}"></script> <!-- Custom scripts -->
 </body>
+
 </html>
