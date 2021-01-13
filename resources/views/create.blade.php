@@ -11,13 +11,14 @@
 <br>
 <br>
 <br>
+
 <body>
     <div class="card-body text-center padding-top:60px;">
 
         <p>
             <h1> Own Customized Trip Plan </h1>
         </p>
-        <p>Create your travel itinerary. Book your accommodation, tours and flights</p>
+        <p>Create your travel itinerary.</p>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -53,7 +54,16 @@
                                     <label for="description">Description</label>
                                     <textarea class="form-control" name='description' rows="3" name='description'></textarea>
                                 </div>
-
+                                <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Estimate Cost</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">Rp. </div>
+                                        </div>
+                                        <input type="number" class="form-control" name='price'>
+                                    </div>
+                                   
+                                </div>
                                 <div class="form-group col-6">
                                     <select id="inputState" class="form-control">
                                         <option selected>Choose Your Tour Guide</option>
