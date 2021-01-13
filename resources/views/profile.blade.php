@@ -16,23 +16,25 @@
         <h4 class='judul'>Profile</h4>
         <div class='container' style="width: 60%;">
 
-            <form action='' , method="POST">
+            <form action='/profile/update'  method="POST">
+            @csrf
+            @method('patch')
                 <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
-                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="">
+                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ Auth::user()->email }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="nama" name="nama" value="">
+                            <input type="text" class="form-control" id="nama" name="name" value="{{ Auth::user()->name }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="phone" class="col-sm-2 col-form-label">Nomor Handphone</label>
                         <div class="col-sm-10">
-                            <input type="tel" class="form-control" name="phone" id="phone" value="">
+                            <input type="tel" class="form-control" name="nohp" id="phone" value="{{ Auth::user()->nohp }}">
                         </div>
                     </div>
                     <div class="form-group row">

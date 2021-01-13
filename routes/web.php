@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\StaticGuiderController;
 use App\Http\Controllers\TripsController;
-
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,9 +40,17 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/',[TripsController::class, 'index']);
 
 //Trip Plan
-Route::get('/createTrip',[TripsController::class, 'create']);
+
 Route::post('/',[TripsController::class, 'store']);
 
 //guider
-Route::get('/TourGuide',[StaticGuiderController::class, 'index']);
-Route::get('/createTripGuider',[TripsController::class, 'create']);
+Route::get('/TourGuide',[StaticGuiderController::class, 'index'])->name('guideindex');
+
+
+Route::middleware('auth')->group(function(){
+    Route::get('/createTrip',[TripsController::class, 'create']);
+    Route::get('/createTripGuider',[TripsController::class, 'create']);
+    Route::get('/profile',[ProfileController::class, 'index']);
+    Route::patch('/profile/update',[ProfileController::class, 'update']);
+});
+
