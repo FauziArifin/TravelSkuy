@@ -18,7 +18,7 @@
             <h1>DISCOVER NEW <span id="js-rotating">PLACES, FRIENDS, EXPERIENCES</span></h1>
             <p class="p-heading p-large">Travel with us, find new friends and whole new holiday experiences you've never felt.</p>
             <a class="btn-solid-lg page-scroll" href="#package">BOOK NOW</a>
-            <a class="btn btn-primary" href="/create">CREATE YOUR TRIP</a>
+            <a class="btn btn-primary" href="/createTrip">CREATE YOUR TRIP</a>
           </div>
         </div> <!-- end of col -->
       </div> <!-- end of row -->

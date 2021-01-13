@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StaticController;
+use App\Http\Controllers\StaticGuiderController;
+use App\Http\Controllers\TripsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,18 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/create', function () {
-    return view('create');
-});
-Route::get('/history', function () {
-    return view('history');
-});
-
-Route::get('/profile', function () {
-    return view('profile');
+// Route::get('/', function () {
+//     return view('index');
+// });
+// Route::get('/create', function () {
+//     return view('create');
+// });
+Route::get('/contact', function () {
+    return view('contactWA');
 });
 
 Route::get('/detail', function () {
@@ -35,3 +34,15 @@ Route::get('/detail', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+
+
+//index
+Route::get('/',[TripsController::class, 'index']);
+
+//Trip Plan
+Route::get('/createTrip',[TripsController::class, 'create']);
+Route::post('/',[TripsController::class, 'store']);
+
+//guider
+Route::get('/TourGuide',[StaticGuiderController::class, 'index']);
+Route::get('/createTripGuider',[TripsController::class, 'create']);
