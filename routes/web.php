@@ -26,8 +26,8 @@ Route::get('/contact', function () {
     return view('contactWA');
 });
 
-Route::get('/detail', function () {
-    return view('DetailPlan');
+Route::get('/profile', function () {
+    return view('profile');
 });
 
 
