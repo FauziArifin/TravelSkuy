@@ -8,6 +8,6 @@ class StaticGuiderController extends Controller
 {
     public function index()
     {
-        return view('Guider/indexGuider');
+        return view('Guider.indexGuider');
     }
 }
