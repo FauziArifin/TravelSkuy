@@ -66,10 +66,10 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link page-scroll" href="/">HOME<span class="sr-only">(current)</span></a>
+          <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}">HOME</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link page-scroll" href=''>TRAVEL LIST</a>
+          <a class="nav-link {{ Request::is('travelList') ? 'active' : '' }}" href="{{ url('/TravelList') }}">TRAVEL LIST</a>
         </li>
         @guest
         @if (Route::has('login'))
@@ -105,20 +105,20 @@
 
         @endguest
       </ul>
-      <span class="nav-item social-icons">
+      {{-- <span class="nav-item social-icons">
         <span class="fa-stack">
-          <a href="#your-link">
+          <a href="https://www.facebook.com/">
             <span class="hexagon"></span>
             <i class="fab fa-facebook-f fa-stack-1x"></i>
           </a>
         </span>
         <span class="fa-stack">
-          <a href="#your-link">
+          <a href="https://twitter.com/">
             <span class="hexagon"></span>
             <i class="fab fa-twitter fa-stack-1x"></i>
           </a>
         </span>
-      </span>
+      </span> --}}
     </div>
 
   </nav> <!-- end of navbar -->

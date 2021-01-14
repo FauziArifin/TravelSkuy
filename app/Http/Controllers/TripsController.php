@@ -18,6 +18,12 @@ class TripsController extends Controller
         return view('index', compact('trips'));
     }
 
+    public function list()
+    {
+        $trips = trip::all();
+        return view('travelList', compact('trips'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

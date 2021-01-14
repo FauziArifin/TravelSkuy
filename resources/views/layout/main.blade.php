@@ -118,20 +118,20 @@
 
         @endguest
       </ul>
-      <span class="nav-item social-icons">
+      {{-- <span class="nav-item social-icons">
         <span class="fa-stack">
-          <a href="#your-link">
+          <a href="https://www.facebook.com/">
             <span class="hexagon"></span>
             <i class="fab fa-facebook-f fa-stack-1x"></i>
           </a>
         </span>
         <span class="fa-stack">
-          <a href="#your-link">
+          <a href="https://twitter.com/">
             <span class="hexagon"></span>
             <i class="fab fa-twitter fa-stack-1x"></i>
           </a>
         </span>
-      </span>
+      </span> --}}
     </div>
 
   </nav> <!-- end of navbar -->

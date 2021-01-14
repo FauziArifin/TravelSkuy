@@ -19,9 +19,6 @@ use App\Http\Controllers\ProfileController;
 // Route::get('/', function () {
 //     return view('index');
 // });
-// Route::get('/create', function () {
-//     return view('create');
-// });
 
 Auth::routes();
 
@@ -33,6 +30,7 @@ Route::get('/',[TripsController::class, 'index']);
 
 //Trip Plan
 Route::post('/',[TripsController::class, 'store']);
+Route::get('/TravelList',[TripsController::class, 'list']);
 
 //guider
 Route::get('/TourGuide',[StaticGuiderController::class, 'index'])->name('guideindex');
