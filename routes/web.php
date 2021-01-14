@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\BookingsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\StaticGuiderController;
 use App\Http\Controllers\TripsController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +18,9 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
+Route::get('/history', function () {
+    return view('History/emptyHistory');
+});
 
 Auth::routes();
 
@@ -32,8 +34,14 @@ Route::get('/',[TripsController::class, 'index']);
 Route::post('/',[TripsController::class, 'store']);
 Route::get('/TravelList',[TripsController::class, 'list']);
 
+//Booking
+Route::post('/TravelList/booking/{book}',[BookingsController::class, 'store']);
+
 //guider
 Route::get('/TourGuide',[StaticGuiderController::class, 'index'])->name('guideindex');
+
+//history
+Route::get('/history',[BookingsController::class, 'indexHistory']);
 
 
 Route::middleware('auth')->group(function(){

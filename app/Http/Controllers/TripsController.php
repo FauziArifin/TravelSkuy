@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Trip;
+use App\Models\User;
+
 use Illuminate\Http\Request;
 
 class TripsController extends Controller
@@ -21,6 +23,7 @@ class TripsController extends Controller
     public function list()
     {
         $trips = trip::all();
+
         return view('travelList', compact('trips'));
     }
 

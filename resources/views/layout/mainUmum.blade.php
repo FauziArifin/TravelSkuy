@@ -69,7 +69,7 @@
           <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}">HOME</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('travelList') ? 'active' : '' }}" href="{{ url('/TravelList') }}">TRAVEL LIST</a>
+          <a class="nav-link {{ Request::is('TravelList') ? 'active' : '' }}" href="{{ url('/TravelList') }}">TRAVEL LIST</a>
         </li>
         @guest
         @if (Route::has('login'))
@@ -84,6 +84,9 @@
         </li>
         @endif
         @else
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('history') ? 'active' : '' }}" href="{{ url('/history') }}">HISTORY</a>
+        </li>
         <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             {{ Auth::user()->name }}
