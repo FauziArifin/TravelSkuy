@@ -44,7 +44,7 @@ class LoginController extends Controller
         if($user->role === 'tourguide') {
             return redirect()->intended(route('guideindex'));
         }elseif ($user->role === 'traveler'){
-            return redirect()->intended('/home');
+            return redirect()->intended('/');
         }
 
         return redirect()->intended($redirectTo);

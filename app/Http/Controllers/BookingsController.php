@@ -20,11 +20,12 @@ class BookingsController extends Controller
 
     public function indexHistory()
     {
-        $bookings = Booking::all();
-        if ($bookings->isEmpty()) {
-            return view('/History/emptyHistory');
-        } else {
+        $bookings = booking::where('user_id', Auth::user()->id);
+
+        if ($bookings) {
             return view('/History/history', compact('bookings'));
+        } else {
+            return view('/History/emptyHistory');
         }
     }
 

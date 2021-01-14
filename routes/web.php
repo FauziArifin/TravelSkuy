@@ -18,20 +18,20 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/history', function () {
-    return view('History/emptyHistory');
-});
+// Route::get('/history', function () {
+//     return view('History/emptyHistory');
+// });
 
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+
+//Auth
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
-
 
 //index
 Route::get('/',[TripsController::class, 'index']);
 
 //Trip Plan
-Route::post('/',[TripsController::class, 'store']);
+// Route::post('/',[TripsController::class, 'store']);
 Route::get('/TravelList',[TripsController::class, 'list']);
 
 //Booking
