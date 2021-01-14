@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -27,8 +28,22 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
+    //protected $redirectTo = RouteServiceProvider::HOME;
+    public function redirectTo()
+    {
+        $role = Auth::user()->role;
+        switch ($role) {
+            case 'tourguide':
+                return '/TourGuide';
+                break;
+            case 'traveler':
+                return '/';
+                break;
+            default:
+                return '/';
+                break;
+        }
+    }
     /**
      * Create a new controller instance.
      *
@@ -41,9 +56,9 @@ class LoginController extends Controller
     protected function authenticated($request, $user)
     {
         global $redirectTo;
-        if($user->role === 'tourguide') {
+        if ($user->role === 'tourguide') {
             return redirect()->intended(route('guideindex'));
-        }elseif ($user->role === 'traveler'){
+        } elseif ($user->role === 'traveler') {
             return redirect()->intended('/');
         }
 

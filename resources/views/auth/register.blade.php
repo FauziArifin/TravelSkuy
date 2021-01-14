@@ -3,27 +3,17 @@
 @section('content')
 
 <div class="container" align="center">
-    <div class="card card0 border-0">
+    <div class="card card0 border-0" style="background-image: url('assets/style/images/about.jpg');">
         <div class="row py-5 mt-4 align-items-center">
-            <!-- For Demo Purpose -->
-            <!-- <div class="col-md-5 pr-lg-5 mb-5 mb-md-0"> -->
-            <div class="col-lg-6">
-                <div class="card1 pb-5">
-                    <img src="https://res.cloudinary.com/mhmd/image/upload/v1569543678/form_d9sh6m.svg" alt="" class="img-fluid mb-3 d-none d-md-block">
-                    <h1>Create an Account</h1>
-                    <p class="font-italic text-muted mb-0">TravelSkuy merupakan platform yang dapat mempertemukan para traveller di seluruh Indonesia</p>
-                </div>
-            </div>
-
             <!-- Login Form -->
             <div class="col-md-7 col-lg-6 ml-auto">
-                <!-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8"> -->
-                <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
 
-                    <div class="card-body">
+                <div class="card">
+
+                    <h3 class="form-title"><b>{{ __('Register') }}</b></h3>
+
+
+                    <div class="signup-form">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
@@ -117,7 +107,19 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-6">
+                <div class="signup-images">
+                    <img class="card-image" src="{{ asset('style/images/signup-image.jpg') }}" alt="alternative" class="img-fluid mb-3 d-none d-md-block">
+                    <h1>Create an Account</h1>
+                    <p class="font-italic text-muted mb-0">TravelSkuy merupakan platform yang dapat mempertemukan para traveller di seluruh Indonesia</p>
+                </div>
+            </div>
+            <div class="bg-blue py-4">
+                <div class="row px-3"> <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2020. All rights reserved.</small>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
