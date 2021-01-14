@@ -28,33 +28,51 @@
                                     <div class="form-group">
                                         <input type="text" class="form-control" name='nama' aria-describedby="emailHelp"
                                             placeholder="Where do you want to go?">
+                                        @error('nama')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="row">
                                         <div class="col">
                                             <label for='startDate'>Start date</label>
-                                            <input type="date" class="form-control" name='startDate'>
+                                            <input type="date" class="form-control" name='startDate' value="{{old('startDate')}}">
+                                            @error('startDate')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="col">
                                             <label for="endDate">End date</label>
-                                            <input type="date" class="form-control" name='endDate'>
+                                            <input type="date" class="form-control" name='endDate' value="{{old('endDate')}}">
+                                            @error('endDate')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <label>How much people can join</label>
                                     <div class="row">
                                         <div class="col">
                                             <input type="number" class="form-control" placeholder="Min" name='minimal'
-                                                min="1">
+                                                min="1" value="{{old('minimal')}}">
+                                            @error('minimal')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="col">
                                             <input type="number" class="form-control" placeholder="Max" name='maksimal'
-                                                min="1">
+                                                min="1" value="{{old('maksimal')}}">
+                                            @error('maksimal')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Description</label>
                                         <textarea class="form-control" name='description' rows="3"
-                                            name='description'></textarea>
+                                            name='description' required>{{old('description')}}</textarea>
+                                        @error('description')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleFormControlTextarea1">Sharing Cost</label>
@@ -62,7 +80,10 @@
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">Rp. </div>
                                             </div>
-                                            <input type="number" class="form-control" name='price'>
+                                            <input type="number" class="form-control" name='price' value="{{old('price')}}">
+                                            @error('price')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
 
                                     </div>

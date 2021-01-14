@@ -18,8 +18,8 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col" style="width: 40%;">Trip Name</th>
-                    <th scope="col" style="width: 25%;">Guide Tour</th>
+                    <th scope="col" style="width: 30%;">Trip Name</th>
+                    <th scope="col" style="width: 25%;">Tour Guide</th>
                     <th scope="col">Start Date</th>
                     <th scope="col">End Date</th>
                 </tr>
@@ -30,8 +30,8 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $booking->Trip->nama}}</td>
                     <td>{{ $booking->Trip->TourGuideName }}</td>
-                    <td>{{ $booking->Trip->StartDate }}</td>
-                    <td>{{ $booking->Trip->EndDate }}</td>
+                    <td>{{ date('F j, Y',strtotime($booking->Trip->StartDate)) }}</td>
+                    <td>{{ date('F j, Y',strtotime($booking->Trip->EndDate)) }}</td>
                 </tr>
                 @endforeach
             </tbody>

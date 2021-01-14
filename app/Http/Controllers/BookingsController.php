@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Trip;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -67,7 +68,14 @@ class BookingsController extends Controller
                 $contactWA = $GuideTour->nohp;
             }
         }
-        
+
+        //update slot maksimal traveller
+        $slot = ($request->maksimal) - 1;
+        Trip::where('id', $request->trip_id)
+                ->update([
+                    'maksimal' => $slot
+                ]);
+
         return view('/contactWA', compact('contactWA'));
     }
 

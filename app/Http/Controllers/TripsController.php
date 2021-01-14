@@ -16,7 +16,7 @@ class TripsController extends Controller
      */
     public function index()
     {
-        $trips = trip::all();
+        $trips = trip::all()->take(3);
         return view('index', compact('trips'));
     }
 
@@ -96,7 +96,7 @@ class TripsController extends Controller
             'price' => $request->price,
         ]);
 
-        return redirect('/TravelList')->with('status', 'Data Berhasil ditambahkan');
+        return redirect('/TravelList')->with('status', 'Trip Plan Berhasil ditambahkan');
     }
 
     public function storeGuider(Request $request)

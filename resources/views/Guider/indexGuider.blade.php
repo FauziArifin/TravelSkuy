@@ -18,6 +18,7 @@
                             <h1>DISCOVER NEW <span id="js-rotating">PLACES, FRIENDS, EXPERIENCES</span></h1>
                             <p class="p-heading p-large">Travel with us, find new friends and whole new holiday experiences
                                 you've never felt.</p>
+                            <a class="btn-solid-lg page-scroll" href="/TravelListGuider">LIST TRIPS</a>
                             <a class="btn btn-primary" href="/createTripGuider">CREATE TRIP</a>
                         </div>
                     </div> <!-- end of col -->
@@ -49,7 +50,8 @@
                             <div class="card-body">
                                 <h3 class="card-title">{{ $trip->nama }}</h3>
                                 <p>{{ $trip->description }}</p>
-                                <p class="price">Sharing Cost<br><span>Rp.{{ $trip->price }}</span></p>
+                                <p>Slot Tersisa : <b>{{ $trip->maksimal }} orang</b></p>
+                                <p class="price">Sharing Cost<br><span>Rp{{ number_format($trip->price,2)}}</span></p>
                             </div>
                             <div class="button-container">
                                 <a class="btn-solid-reg popup-with-move-anim" href="#{{ $trip->nama }}">DETAILS</a>
@@ -57,6 +59,10 @@
                         </div>
                         <!-- end of card -->
                     @endforeach
+                    {{-- <div class='text-center'>
+                        <h5>More List</h5>
+                        <a class="btn btn-primary" href="/TravelListGuider">SHOW ALL TRIPS</a>
+                    </div> --}}
 
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -76,10 +82,10 @@
                 <div class="col-lg-4">
                     <h3>Detail trip to {{ $trip->nama }}</h3>
                     <hr class="line-heading">
-                    <p>Trip for Sunday, 17 January 2021.</p>
                     <p>Start Date: {{ $trip->StartDate }}</p>
                     <p>End Date: {{ $trip->EndDate }}</p>
-                    <p>Sharing cost: Rp.{{ $trip->price }}</p>
+                    <p>Slot Tersisa: {{ $trip->maksimal }} orang</p>
+                    <p>Sharing cost: Rp{{ number_format($trip->price,2)}}</p>
                     <a class="btn-outline-reg mfp-close as-button" href="#package">BACK</a>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->

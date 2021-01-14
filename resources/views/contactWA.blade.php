@@ -12,6 +12,15 @@
     <br>
     <br>
     <div class='container text-center'>
+        {{-- @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif --}}
+        <div class="alert alert-success">
+            Selamat berhasil booking
+        </div>
+        <br>
         <h3 class="mt-4">Contact Tour Guide</h3>
         <h5>{{$contactWA}}</h3>
     </div>

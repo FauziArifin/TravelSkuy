@@ -1,4 +1,4 @@
-@extends('layout/main')
+@extends('layout/mainUmum')
 
 
 @section('title', 'Profile')
@@ -14,6 +14,17 @@
     <div class='container'>
         <br>
         <h4 class='judul'>Profile</h4>
+        @if (session('status'))
+            @if ( session('status') == 'Profil gagal diupdate')
+                <div class="alert alert-danger">
+                    {{ session('status') }}
+                </div>    
+            @else
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div> 
+            @endif
+        @endif
         <div class='container' style="width: 60%;">
 
             <form action='/profile/update'  method="POST">
@@ -40,13 +51,13 @@
                     <div class="form-group row">
                         <label for="password" class="col-sm-2 col-form-label">Password</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="password" name="password">
+                            <input type="password" class="form-control" id="password" name="password" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="password2" class="col-sm-2 col-form-label">Confirm Password</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="password2" name="password2">
+                            <input type="password" class="form-control" id="password2" name="password2" required>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block" name='edit'>Save changes</button>

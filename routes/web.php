@@ -2,8 +2,6 @@
 
 use App\Http\Controllers\BookingsController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StaticController;
-use App\Http\Controllers\StaticGuiderController;
 use App\Http\Controllers\TripsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
@@ -30,26 +28,32 @@ Auth::routes();
 //index
 Route::get('/',[TripsController::class, 'index']);
 
-//Trip Plan
-Route::post('/TravelList',[TripsController::class, 'store']);
-Route::get('/TravelList',[TripsController::class, 'list']);
-
-//Booking
-Route::post('/TravelList/booking/{book}',[BookingsController::class, 'store']);
-
-//history
-Route::get('/history',[BookingsController::class, 'indexHistory']);
-
-
-//guider
-Route::get('/TourGuide',[TripsController::class, 'indexTourGuide'])->name('guideindex');
-Route::get('/TravelListGuider',[TripsController::class, 'listTripGuider']);
-Route::post('/TravelListGuider',[TripsController::class, 'storeGuider']);
 
 Route::middleware('auth')->group(function(){
+    
+    //Trip Plan
     Route::get('/createTrip',[TripsController::class, 'create']);
+    Route::post('/TravelList',[TripsController::class, 'store']);
+    Route::get('/TravelList',[TripsController::class, 'list']);
+
+    //history
+    Route::get('/history',[BookingsController::class, 'indexHistory']);
+
+    //Booking
+    Route::post('/TravelList/booking/{book}',[BookingsController::class, 'store']);
+
+    //Guider
+    Route::get('/TourGuide',[TripsController::class, 'indexTourGuide'])->name('guideindex');
     Route::get('/createTripGuider',[TripsController::class, 'createTripGuider']);
+    Route::get('/TravelListGuider',[TripsController::class, 'listTripGuider']);
+    Route::post('/TravelListGuider',[TripsController::class, 'storeGuider']);
+
+    //profile
     Route::get('/profile',[ProfileController::class, 'index']);
     Route::patch('/profile/update',[ProfileController::class, 'update']);
+
+    //profile Guider
+    Route::get('/profileGuider',[ProfileController::class, 'indexGuider']);
+    Route::patch('/profileGuider/update',[ProfileController::class, 'updateGuider']);
 });
 
