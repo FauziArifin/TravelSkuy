@@ -57,8 +57,8 @@
                         @csrf
                         <input type="hidden" name="trip_id" value='{{ $trip->id }}'>
                         <input type="hidden" name="user_id" value='{{ Auth::user()->id }}'>
+                        <input type="hidden" name="TourGuideName" value='{{ $trip->TourGuideName }}'>
                         
-
                         <button type="submit" class="btn-solid-reg">JOIN TRIP</button>
                         <a class="btn-outline-reg mfp-close as-button" href="#package">BACK</a>
                     </form>

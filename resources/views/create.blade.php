@@ -23,7 +23,7 @@
                     <div class="col-md-8">
                         <div class="card">
                             <div class="card-body">
-                                <form method="POST" action="/" enctype="multipart/form-data">
+                                <form method="POST" action="/TravelList" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <input type="text" class="form-control" name='nama' aria-describedby="emailHelp"
@@ -57,7 +57,7 @@
                                             name='description'></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleFormControlTextarea1">Estimate Cost</label>
+                                        <label for="exampleFormControlTextarea1">Sharing Cost</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">Rp. </div>
@@ -70,8 +70,9 @@
                                         <label for="TourGuideName">Choose Your Tour Guide</label>
                                         <!-- <input type="time" class="form-control" name='mulai' id="mulai" required> -->
                                         <select class='form-control' name='TourGuideName'>
-                                            <option value="Andi">Andi</option>
-                                            <option value="Budi">Budi</option>
+                                            @foreach ($GuideTours as $GuideTour)
+                                                <option value="{{ $GuideTour->name }}">{{ $GuideTour->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group col-6">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,12 +21,12 @@ class BookingsController extends Controller
 
     public function indexHistory()
     {
-        $bookings = booking::where('user_id', Auth::user()->id);
+        $bookings = booking::where('user_id', '=', Auth::user()->id)->get();
 
-        if ($bookings) {
-            return view('/History/history', compact('bookings'));
-        } else {
+        if ($bookings->isEmpty()) {
             return view('/History/emptyHistory');
+        } else {
+            return view('/History/history', compact('bookings'));
         }
     }
 
@@ -57,8 +58,17 @@ class BookingsController extends Controller
             'user_id' => $request->user_id,
         ]);
         
-        $bookings = Booking::where('user_id', Auth::user()->id);
-        return view('/History/history', compact('bookings'));
+        // $bookings = Booking::where('user_id', Auth::user()->id);
+        // $bookings = booking::where('user_id', '=', Auth::user()->id)->get();
+        $GuideTours = user::where('role', '=', 'tourguide')->get();
+
+        foreach ($GuideTours as $GuideTour){
+            if ( $GuideTour->name == $request->TourGuideName){
+                $contactWA = $GuideTour->nohp;
+            }
+        }
+        
+        return view('/contactWA', compact('contactWA'));
     }
 
     /**

@@ -31,22 +31,24 @@ Auth::routes();
 Route::get('/',[TripsController::class, 'index']);
 
 //Trip Plan
-// Route::post('/',[TripsController::class, 'store']);
+Route::post('/TravelList',[TripsController::class, 'store']);
 Route::get('/TravelList',[TripsController::class, 'list']);
 
 //Booking
 Route::post('/TravelList/booking/{book}',[BookingsController::class, 'store']);
 
-//guider
-Route::get('/TourGuide',[StaticGuiderController::class, 'index'])->name('guideindex');
-
 //history
 Route::get('/history',[BookingsController::class, 'indexHistory']);
 
 
+//guider
+Route::get('/TourGuide',[TripsController::class, 'indexTourGuide'])->name('guideindex');
+Route::get('/TravelListGuider',[TripsController::class, 'listTripGuider']);
+Route::post('/TravelListGuider',[TripsController::class, 'storeGuider']);
+
 Route::middleware('auth')->group(function(){
     Route::get('/createTrip',[TripsController::class, 'create']);
-    Route::get('/createTripGuider',[TripsController::class, 'create']);
+    Route::get('/createTripGuider',[TripsController::class, 'createTripGuider']);
     Route::get('/profile',[ProfileController::class, 'index']);
     Route::patch('/profile/update',[ProfileController::class, 'update']);
 });

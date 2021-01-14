@@ -12,8 +12,8 @@
     <br>
     <br>
     <div class='container text-center'>
-        <h3 class="mt-4">Contact Tour Guide ...</h3>
-        <h5>08xxx</h3>
+        <h3 class="mt-4">Contact Tour Guide</h3>
+        <h5>{{$contactWA}}</h3>
     </div>
 
 @endsection

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Trip;
-
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class TripsController extends Controller
@@ -19,12 +20,26 @@ class TripsController extends Controller
         return view('index', compact('trips'));
     }
 
+    public function indexTourGuide()
+    {
+        $trips = trip::where('TourGuideName', '=', Auth::user()->name)->get();
+        return view('Guider/indexGuider', compact('trips'));
+    }
+
+
     public function list()
     {
         $trips = trip::all();
 
         return view('travelList', compact('trips'));
     }
+    public function listTripGuider()
+    {
+        $trips = trip::where('TourGuideName', '=', Auth::user()->name)->get();
+        return view('Guider/TravelListGuider', compact('trips'));
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -33,12 +48,15 @@ class TripsController extends Controller
      */
     public function create()
     {
-        return view('create');
+        $GuideTours = user::where('role', '=', 'tourguide')->get();
+        return view('create', compact('GuideTours'));
     }
 
     public function createTripGuider()
-    {
-        return view('CreateTripGuider');
+    {   
+        // $GuideTours = user::where('name', '=', Auth::user()->name)->get();
+        $GuideTourName = Auth::user()->name;
+        return view('/Guider/CreateTripGuider', compact('GuideTourName'));
     }
 
     /**
@@ -78,7 +96,41 @@ class TripsController extends Controller
             'price' => $request->price,
         ]);
 
-        return redirect('/')->with('status', 'Data Berhasil ditambahkan');
+        return redirect('/TravelList')->with('status', 'Data Berhasil ditambahkan');
+    }
+
+    public function storeGuider(Request $request)
+    {
+        $request->validate([
+            'image' => 'required',
+            'image' => 'mimes:jpeg,jpg,png',
+            'nama' => 'required',
+            'startDate' => 'required',
+            'endDate' => 'required',
+            'minimal' => 'required',
+            'maksimal' => 'required',
+            'description' => 'required',
+        ]);
+
+
+        $imgName = $request->image->getClientOriginalName() . '-' . time() . '.' . $request->image->extension();
+
+        $request->image->move(public_path('img'), $imgName);
+
+        // Product::create($request->all());
+        Trip::create([
+            'nama' => $request->nama,
+            'StartDate' => $request->startDate,
+            'EndDate' => $request->endDate,
+            'minimal' => $request->minimal,
+            'maksimal' => $request->maksimal,
+            'description' => $request->description,
+            'TourGuideName' => $request->TourGuideName,
+            'img_path' => $imgName,
+            'price' => $request->price,
+        ]);
+
+        return redirect('/TravelListGuider')->with('status', 'Data Berhasil ditambahkan');
     }
 
     /**

@@ -65,24 +65,6 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img class="img-fluid" src="{{ asset('style/images/bandung.jpg') }}" alt="alternative">
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Bandung</h3>
-                            <p>List of trips to the city of Bandung.</p>
-
-                            <p class="price">Trip to Bandung <br><span>Check the list</span></p>
-                        </div>
-                        <div class="button-container">
-                            <a class="btn-solid-reg popup-with-move-anim" href="#bandung">DETAILS</a>
-                        </div> <!-- end of button-container -->
-                    </div>
-                    <!-- end of card -->
-
-
                     @foreach ($trips as $trip)
                         <!-- Card -->
                         <div class="card">
@@ -107,25 +89,7 @@
     </div> <!-- end of cards-2 -->
     <!-- end of services -->
 
-    <!-- Popup Trips -->
-    <!-- Lightbox -->
-    <div id="bandung" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-            <div class="col-lg-8">
-                <img class="img-fluid" src="{{ asset('style/images/bandung.jpg') }}" alt="alternative">
-            </div> <!-- end of col -->
-            <div class="col-lg-4">
-                <h3>List of trips to the city of Bandung.</h3>
-                <hr class="line-heading">
-                <p>Trip for Sunday, 17 January 2021.</p>
-                <a class="btn-solid-reg" href="/create">JOIN TRIP</a> <a class="btn-outline-reg mfp-close as-button"
-                    href="#package">BACK</a>
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of lightbox -->
-
+    
     @foreach ($trips as $trip)
         <!-- Lightbox -->
         <div id="{{ $trip->nama }}" class="lightbox-basic zoom-anim-dialog mfp-hide">
