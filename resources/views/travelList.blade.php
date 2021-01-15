@@ -66,7 +66,14 @@
                         <input type="hidden" name="TourGuideName" value='{{ $trip->TourGuideName }}'>
                         <input type="hidden" name="maksimal" value='{{ $trip->maksimal }}'>
                         
-                        <button type="submit" class="btn-solid-reg">JOIN TRIP</button>
+                        @if ($trip->maksimal == 0)
+                            {{-- <a href="/orders/{{ $product->id }}" class="btn disabled">Order Now</a> --}}
+                            {{-- <a class="btn-solid-reg mfp-close as-button" href="#package">BACK</a> --}}
+                            {{-- <button type="submit" class="btn btn-primary disabled">JOIN TRIP</button> --}}
+                            <a href="" class="btn btn-primary disabled">Order Now</a>
+                        @else
+                            <button type="submit" class="btn-solid-reg">JOIN TRIP</button>
+                        @endif
                         <a class="btn-outline-reg mfp-close as-button" href="#package">BACK</a>
                     </form>
                     
