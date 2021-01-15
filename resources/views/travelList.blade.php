@@ -32,7 +32,7 @@
                             
                         </div>
                         <div class="card-footer">
-                            <a class="btn-solid-reg popup-with-move-anim" href="#{{ $trip->nama }}">DETAILS</a>
+                            <a class="btn-solid-reg popup-with-move-anim" href="#{{ $trip->id }}">DETAILS</a>
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
 
     @foreach ($trips as $trip)
         <!-- Lightbox -->
-        <div id="{{ $trip->nama }}" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        <div id="{{ $trip->id }}" class="lightbox-basic zoom-anim-dialog mfp-hide">
             <div class="row">
                 <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
                 <div class="col-lg-8">
