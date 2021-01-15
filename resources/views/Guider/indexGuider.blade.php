@@ -82,8 +82,8 @@
                 <div class="col-lg-4">
                     <h3>Detail trip to {{ $trip->nama }}</h3>
                     <hr class="line-heading">
-                    <p>Start Date: {{ $trip->StartDate }}</p>
-                    <p>End Date: {{ $trip->EndDate }}</p>
+                    <p>Start Date: {{ date('F j, Y',strtotime($trip->StartDate)) }}</p>
+                    <p>End Date: {{ date('F j, Y',strtotime($trip->EndDate)) }}</p>
                     <p>Slot Tersisa: {{ $trip->maksimal }} orang</p>
                     <p>Sharing cost: Rp{{ number_format($trip->price,2)}}</p>
                     <a class="btn-outline-reg mfp-close as-button" href="#package">BACK</a>

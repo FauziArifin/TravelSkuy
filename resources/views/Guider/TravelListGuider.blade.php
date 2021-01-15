@@ -51,8 +51,8 @@
                     <h3>Detail trip to {{ $trip->nama }}</h3>
                     <hr class="line-heading">
                     <p>Trip for Sunday, 17 January 2021.</p>
-                    <p>Start Date: {{ $trip->StartDate }}</p>
-                    <p>End Date: {{ $trip->EndDate }}</p>
+                    <p>Start Date: {{ date('F j, Y',strtotime($trip->StartDate)) }}</p>
+                    <p>End Date: {{ date('F j, Y',strtotime($trip->EndDate)) }}</p>
                     <p>Min traveller: {{ $trip->minimal }}</p>
                     <p>Max traveller: {{ $trip->maksimal }}</p>
                     <p>Tour Guide Name: {{ $trip->TourGuideName }}</p>
